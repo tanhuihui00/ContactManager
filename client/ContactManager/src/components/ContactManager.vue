@@ -56,7 +56,7 @@ const filteredContacts = computed(() => {
 
 async function fetchContacts() {
   try {
-    const response = await axios.get('api/contacts');
+    const response = await axios.get('https://contactmanager1-t5jh.onrender.com/api/contacts');
     contacts.value = response.data;
     sortByName();
   } catch (error) {
