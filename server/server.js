@@ -9,13 +9,7 @@ const contactRoutes = require('./routes/contacts')
 dotenv.config({path : './config.env'})
 
 // Middleware
-// middleware
-const corsOptions = {
-    origin: "https://contactmanager-1-bprx.onrender.com/",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.DATABASE, {
