@@ -20,5 +20,12 @@ mongoose.connect(process.env.DATABASE, {
 // Routes
 app.use('/', contactRoutes);
 
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(__dirname+'/dist/'));
+    app.get('*', (req,res) => {
+        res.sendFile(__dirname+'/dist/index.html');
+    })
+}
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log('Server running on port ', PORT));
